@@ -1,17 +1,21 @@
 <template>
-  <div class="mb-3">
-    <b-card
-      title="Title"
-      header-tag="header"
-      footer-tag="footer"
-      class="cursor-pointer"
-      v-on:click="goToBookDetail(book.title)"
+  <div class="mb-3" style="max-width: 370px">
+    <div
+      class="card cursor-pointer"
+      style="width: 18rem"
+      v-on:click="goToBookDetail(book.bookId)"
     >
-      <b-card-text>Header and footers using slots.</b-card-text>
-      <template #footer>
-        <em>Footer Slot</em>
-      </template>
-    </b-card>
+      <!-- <img class="card-img-top" src="..." alt="Card image cap" /> -->
+      <div class="card-body">
+        <h5 class="card-title" style="height: 2em">{{ book.title }}</h5>
+        <p class="card-text" style="height: 15em;">
+          {{ book.description }}
+        </p>
+      </div>
+      <div class="card-body text-right">
+        <em>{{ book.author }}</em>
+      </div>
+    </div>
   </div>
 </template>
 
