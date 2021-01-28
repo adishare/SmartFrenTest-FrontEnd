@@ -12,9 +12,20 @@
         </b-jumbotron>
       </b-container>
     </div>
+    <div class="container mb-3">
+      <div class="row">
+        <div class="col text-right">
+          <button
+            class="btn btn-success"
+            @click="$router.push('/books/create')"
+          >
+            + Add New Book
+          </button>
+        </div>
+      </div>
+    </div>
 
     <book-deck></book-deck>
-
   </div>
 </template>
 

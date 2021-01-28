@@ -1,6 +1,6 @@
 export const state = () => ({
     list: [],
-    active : null,
+    active : {},
     isLoading : false,
     error : null,
     api : '/books',
@@ -18,6 +18,12 @@ export const mutations = {
     },
     clearActive(state) {
         state.active = null
+    },
+    addOne(state, data) {
+        state.list.unshift(data)
+    },
+    deleteOne(state, index) {
+        state.list.splice(index, 1)
     },
     setLoading(state, value) {
         state.isLoading = value
@@ -37,21 +43,27 @@ export const actions = {
     },
     async getOneByIdRequest(store, id) {
         store.commit('setLoading', true)
-        let res = await this.$axios.get(store.state.api, {
-            params : {
-                id
-            }
-        })
+        let res = await this.$axios.get(store.state.api +'/'+ id )
         store.commit('storeActive', res.data)
+        store.commit('setLoading', false)
+    },
+    async createOneRequest(store, data) {
+        store.commit('setLoading', true)
+        let res = await this.$axios.post(store.state.api, data)
+        store.commit('storeActive', res.data)
+        store.commit('addOne', res.data)
         store.commit('setLoading', false)
     },
     async deleteOneByIdRequest(store, id) {
         store.commit('setLoading', true)
-        let res = await this.$axios.delete(store.state.api, {
-            data : {
-                id
-            }
-        })
+        let res = await this.$axios.delete(store.state.api +'/'+ id )
+        let index = store.state.list.findIndex(book => book.bookId == id)
+        store.commit('deleteOne', index)
+        store.commit('setLoading', false)
+    },
+    async updateOneByIdRequest(store, data) {
+        store.commit('setLoading', true)
+        let res = await this.$axios.put(store.state.api +'/'+ data.bookId, data )
         store.commit('storeActive', res.data)
         store.commit('setLoading', false)
     },
