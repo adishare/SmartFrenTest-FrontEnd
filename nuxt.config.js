@@ -15,6 +15,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+      '~/assets/custom.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -41,8 +42,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseURL: 'https://us-central1-kampusku-6dcb4.cloudfunctions.net/api',
-    baseURL: 'http://localhost:5001/kampusku-6dcb4/us-central1/api',
+    baseURL: 'https://us-central1-kampusku-6dcb4.cloudfunctions.net/api',
+    // baseURL: 'http://localhost:5001/kampusku-6dcb4/us-central1/api',
     
   },
 

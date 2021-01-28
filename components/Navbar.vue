@@ -1,7 +1,9 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand @click="$router.push('/')" style="cursor: pointer;">SmartFren</b-navbar-brand>
+    <b-navbar class='bg-pink' toggleable="lg" type="dark" variant="info">
+      <b-navbar-brand @click="$router.push('/')" style="cursor: pointer;">
+        <img src="@/assets/smartfren-logo.png" width="100"  alt="smartfrent logo">
+      </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

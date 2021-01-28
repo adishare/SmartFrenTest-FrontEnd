@@ -1,22 +1,16 @@
 <template>
   <div className="view-home">
-    <div class="d-none d-md-block mt-5">
-      <b-container>
-        <b-jumbotron
-          bg-variant="info"
-          text-variant="white"
-          class="border-radius-0"
-        >
-          <template #header>Books</template>
-          <template #lead> Book Repository </template>
-        </b-jumbotron>
-      </b-container>
-    </div>
+    
+    <page-header 
+        :pageTitle="`Book App`"
+        :pageSubtitle="`Repository`"
+    />
+
     <div class="container mb-3">
       <div class="row">
         <div class="col text-right">
           <button
-            class="btn btn-success"
+            class="btn btn-danger"
             @click="$router.push('/books/create')"
           >
             + Add New Book
@@ -33,9 +27,10 @@
 import BookDeck from '~/components/BookDeck.vue'
 import Footers from '~/components/Footers.vue'
 import Navbar from '~/components/Navbar.vue'
+import PageHeader from '~/components/PageHeader.vue'
 
 export default {
-  components: { Navbar, BookDeck, Footers },
+  components: { Navbar, BookDeck, Footers, PageHeader },
 }
 </script>
 

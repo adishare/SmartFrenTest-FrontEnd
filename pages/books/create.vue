@@ -1,7 +1,19 @@
 <template>
   <div>
-    <div class="container-fluid bg-info">
-      <div class="container">Create New Book</div>
+    <page-header 
+        :pageTitle="`Book App`"
+        :pageSubtitle="`Add New Book`"
+        :left="true"
+    />
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-sm btn-outline-danger" 
+                    @click="$router.push('/')"
+                > Back </button>
+            </div>
+        </div>
     </div>
 
     <div class="container my-5">
@@ -46,9 +58,11 @@
                 required
               ></b-form-input>
             </b-form-group>
+            <div class="text-right">
+                <b-button :disabled="isLoading" type="reset" variant="light">Reset</b-button>
+                <b-button :disabled="isLoading" type="submit" variant="danger">Create</b-button>
 
-            <b-button :disabled="isLoading" type="submit" variant="primary">Create</b-button>
-            <b-button :disabled="isLoading" type="reset" variant="danger">Reset</b-button>
+            </div>
           </b-form>
         </div>
       </div>
@@ -58,7 +72,9 @@
 
 <script>
 import { mapState,mapActions } from 'vuex'
+import PageHeader from '~/components/PageHeader.vue'
 export default {
+  components: { PageHeader },
   data() {
     return {
       form: {
@@ -78,9 +94,9 @@ export default {
     ...mapActions({
       createOneRequest: 'book/createOneRequest',
     }),
-    onSubmit(event) {
+    async onSubmit(event) {
       event.preventDefault()
-      this.createOneRequest(this.form)
+      await this.createOneRequest(this.form)
       this.$router.push('/')
     },
     onReset(event) {

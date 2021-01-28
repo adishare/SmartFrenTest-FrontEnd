@@ -1,7 +1,7 @@
 <template>
   <b-container class="mb-5">
-    <div>
-      <b-card-group deck>
+    <div >
+      <b-card-group deck class="d-flex justify-content-around">
         <div v-for="book in book_list" :key="book.id">
           <book-card :book="book"></book-card>
         </div>

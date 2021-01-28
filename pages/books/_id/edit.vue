@@ -1,7 +1,18 @@
 <template>
   <div>
-    <div class="container-fluid bg-info">
-      <div class="container">Create New Book</div>
+    <page-header 
+        :pageTitle="`Book App`"
+        :pageSubtitle="`Edit Book`"
+    />
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-sm btn-outline-danger" 
+                    @click="$router.push(`/books/${$route.params.id}`)"
+                > Back </button>
+            </div>
+        </div>
     </div>
 
     <div class="container my-5">
@@ -62,7 +73,9 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import PageHeader from '~/components/PageHeader.vue'
 export default {
+  components: { PageHeader },
   data() {
     return {
       form: {
