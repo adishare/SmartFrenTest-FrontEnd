@@ -6,7 +6,7 @@
         :pageSubtitle="`Repository`"
     />
 
-    <div class="container mb-3">
+    <div class="container my-3">
       <div class="row">
         <div class="col text-right">
           <button

@@ -5,7 +5,7 @@
         :pageSubtitle="`Book Detail`"
     />
 
-    <div class="container">
+    <div class="container my-3">
         <div class="row">
             <div class="col">
                 <button class="btn btn-sm btn-outline-danger" 
